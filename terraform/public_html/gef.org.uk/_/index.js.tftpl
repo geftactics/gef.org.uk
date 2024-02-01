@@ -1,0 +1,53 @@
+// In the old days this was all PHP. Moving all my stuff to serverless now, so in some Y2k style raw javascript to preserve the old site!
+
+var phrases = [
+    "Now with juicy bits!",
+    "Also available in braille format",
+    "Supporting child slave labour",
+    "In surround sound where available",
+    "Now 100% good!",
+    "Have you tried our other great flavors?",
+    "Tastes great with cheese on toast!",
+    "It's not your average snack",
+    "No comment.",
+    "A new fragrance for men, by Calvin Klein",
+    "Anything else would be uncivilized",
+    "I killed Kenny",
+    "Shaken, not stirred.",
+    "Need I say more?",
+    "Ribbed for her pleasure.",
+    "9/10 dwarfs recommend us"
+];
+
+var randomIndex = Math.floor(Math.random() * phrases.length);
+var randomTextElements = document.getElementsByClassName("quote");
+
+if (randomTextElements.length > 0) {
+    randomTextElements[0].innerHTML = phrases[randomIndex];
+} else {
+    console.error("Element with class 'quotes' not found.");
+}
+
+
+
+// Fetch data from the lambda
+fetch('${api_url}')
+    .then(response => response.json())
+    .then(data => {
+        var objects = data.objects;
+        var sortedObjects = objects.sort();
+        var linksContainer = document.getElementById("links");
+        sortedObjects.forEach(object => {
+            var bulletPoint = document.createElement("span");
+            bulletPoint.innerHTML = '&bull; ';
+            var link = document.createElement("a");
+            link.href = object;
+            link.title = object;
+            link.innerText = object;
+            linksContainer.appendChild(bulletPoint);
+            linksContainer.appendChild(link);
+            var lineBreak = document.createElement("br");
+            linksContainer.appendChild(lineBreak);
+        });
+    })
+    .catch(error => console.error('Error fetching data:', error));

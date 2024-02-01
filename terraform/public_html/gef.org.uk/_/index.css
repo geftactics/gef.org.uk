@@ -1,0 +1,46 @@
+body {
+	background-color: #FF9933;
+	color: #FFFFFF;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: x-small;
+}
+
+
+input {
+	background-color: #FF9933;
+	border: 1px solid #FFFFFF;
+	font-size: 10px;
+	color: #FFFFFF;
+}
+
+
+a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+big {
+	font-weight: bold;
+}
+
+
+.fList {
+	font-size: small;
+}
+
+
+.quote {
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: small;
+	color:#FF9933;
+	font-weight: bold;
+}
