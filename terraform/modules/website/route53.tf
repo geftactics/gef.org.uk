@@ -1,6 +1,6 @@
 
 data "aws_route53_zone" "this" {
-  name         = var.r53_zone
+  name         = var.zone
   private_zone = false
 }
 

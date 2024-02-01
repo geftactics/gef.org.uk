@@ -6,6 +6,6 @@ variable "domain" {
   type = string
 }
 
-variable "r53_zone" {
+variable "zone" {
   type = string
 }
