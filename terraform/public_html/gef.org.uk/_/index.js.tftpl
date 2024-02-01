@@ -37,12 +37,16 @@ fetch('${api_url}')
         var objects = data.objects;
         var sortedObjects = objects.sort();
         var linksContainer = document.getElementById("links");
+
         sortedObjects.forEach(object => {
             var bulletPoint = document.createElement("span");
             bulletPoint.innerHTML = '&bull; ';
             var link = document.createElement("a");
-            link.href = object;
             link.title = object;
+            
+            // Append 'index.html' if the item name ends with '/'
+            link.href = object.endsWith('/') ? object + 'index.html' : object;
+
             link.innerText = object;
             linksContainer.appendChild(bulletPoint);
             linksContainer.appendChild(link);
