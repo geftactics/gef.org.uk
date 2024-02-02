@@ -16,6 +16,7 @@ resource "aws_cloudfront_distribution" "this" {
 
   enabled             = true
   default_root_object = "index.html"
+  is_ipv6_enabled     = true
   comment             = var.domain
   aliases             = ["www.${var.domain}", var.domain]
   price_class         = "PriceClass_100"

@@ -23,7 +23,7 @@ resource "aws_route53_record" "validation" {
 }
 
 
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "www_ipv4" {
   zone_id = data.aws_route53_zone.this.zone_id
   name    = "www.${var.domain}"
   type    = "A"
@@ -35,10 +35,34 @@ resource "aws_route53_record" "www" {
 }
 
 
-resource "aws_route53_record" "non_www" {
+resource "aws_route53_record" "www_ipv6" {
+  zone_id = data.aws_route53_zone.this.zone_id
+  name    = "www.${var.domain}"
+  type    = "AAAA"
+  alias {
+    name                   = aws_cloudfront_distribution.this.domain_name
+    zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
+    evaluate_target_health = true
+  }
+}
+
+
+resource "aws_route53_record" "non_www_ipv4" {
   zone_id = data.aws_route53_zone.this.zone_id
   name    = var.domain
   type    = "A"
+  alias {
+    name                   = aws_cloudfront_distribution.this.domain_name
+    zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
+    evaluate_target_health = true
+  }
+}
+
+
+resource "aws_route53_record" "non_www_ipv6" {
+  zone_id = data.aws_route53_zone.this.zone_id
+  name    = var.domain
+  type    = "AAAA"
   alias {
     name                   = aws_cloudfront_distribution.this.domain_name
     zone_id                = aws_cloudfront_distribution.this.hosted_zone_id

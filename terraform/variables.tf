@@ -17,3 +17,7 @@ variable "domain_squiggle" {
 variable "domain_gef" {
   type = string
 }
+
+variable "domain_revolve" {
+  type = string
+}

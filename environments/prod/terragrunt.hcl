@@ -12,4 +12,5 @@ include {
 inputs = {
   domain_squiggle = "squiggle.org"
   domain_gef = "gef.org.uk"
+  domain_revolve = "r-evolve.net"
 }
