@@ -13,4 +13,5 @@ inputs = {
   domain_squiggle = "dev.squiggle.org"
   domain_gef = "dev.gef.org.uk"
   domain_revolve = "dev.r-evolve.net"
+  domain_kendal = "dev.kendal.me"
 }

@@ -18,6 +18,10 @@ variable "domain_gef" {
   type = string
 }
 
+variable "domain_kendal" {
+  type = string
+}
+
 variable "domain_revolve" {
   type = string
 }
