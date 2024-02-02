@@ -25,6 +25,14 @@ resource "aws_cloudfront_distribution" "this" {
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = aws_s3_bucket.this.bucket_regional_domain_name
 
+    dynamic "function_association" {
+      for_each = var.cf_functions
+        content {
+          event_type   = "viewer-request"
+          function_arn = function_association.value
+        }
+    }
+
     forwarded_values {
       query_string = true
       cookies {

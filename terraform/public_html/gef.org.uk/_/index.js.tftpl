@@ -45,7 +45,8 @@ fetch('${api_url}')
             link.title = object;
             
             // Append 'index.html' if the item name ends with '/'
-            link.href = object.endsWith('/') ? object + 'index.html' : object;
+            // link.href = object.endsWith('/') ? object + 'index.html' : object;
+            link.href = object
 
             link.innerText = object;
             linksContainer.appendChild(bulletPoint);

@@ -15,7 +15,7 @@ resource "aws_lambda_function" "gef_dirlist" {
 
 data "archive_file" "gef_dirlist" {
   type        = "zip"
-  source_file = "lambda/dir_list.py"
+  source_file = "src/dir_list.py"
   output_path = "gef_lambda_dirlist_payload.zip"
 }
 

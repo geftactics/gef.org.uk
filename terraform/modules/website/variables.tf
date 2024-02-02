@@ -9,3 +9,8 @@ variable "domain" {
 variable "zone" {
   type = string
 }
+
+variable "cf_functions" {
+  type    = list(string)
+  default = []
+}
