@@ -29,6 +29,23 @@ if (randomTextElements.length > 0) {
 }
 
 
+// placeholder boxen
+var linksContainer = document.getElementById("links");
+linksContainer.innerHTML = '';
+for (let i = 0; i < 40; i++) {
+    var bulletPoint = document.createElement("span");
+    bulletPoint.innerHTML = '&bull; ';
+    var barLength = Math.floor(Math.random() * (150 - 20 + 1)) + 20;
+    var bar = document.createElement("span");
+    bar.style.display = "inline-block";
+    bar.style.width = barLength + "px";
+    bar.style.height = "10px"; // Set the height of the bar
+    bar.style.backgroundColor = "#ddd"; // Set the color of the bar
+    linksContainer.appendChild(bulletPoint);
+    linksContainer.appendChild(bar);
+    var lineBreak = document.createElement("br");
+    linksContainer.appendChild(lineBreak);
+}
 
 // Fetch data from the lambda
 fetch('${api_url}')
@@ -37,6 +54,7 @@ fetch('${api_url}')
         var objects = data.objects;
         var sortedObjects = objects.sort();
         var linksContainer = document.getElementById("links");
+        linksContainer.innerHTML = '';
 
         sortedObjects.forEach(object => {
             var bulletPoint = document.createElement("span");
