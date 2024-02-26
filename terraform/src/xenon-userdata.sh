@@ -2,6 +2,8 @@
 
 date > /root/build_time
 
+hostnamectl set-hostname xenon.squiggle.org
+
 dnf update -y
 dnf install -y bind-utils dnf-automatic htop whois
 
