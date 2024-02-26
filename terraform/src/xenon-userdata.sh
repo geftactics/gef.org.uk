@@ -3,7 +3,8 @@
 date > /root/build_time
 
 dnf update -y
-dnf install -y dnf-automatic
+dnf install -y bind-utils dnf-automatic htop whois
+
 sed -i 's/^apply_updates = no$/apply_updates = yes/' /etc/dnf/automatic.conf
 systemctl enable --now dnf-automatic.timer
 
