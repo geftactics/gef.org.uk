@@ -4,6 +4,7 @@ resource "aws_lambda_function" "gef_dirlist" {
   source_code_hash = data.archive_file.gef_dirlist.output_base64sha256
   runtime          = "python3.12"
   role             = aws_iam_role.gef_lambda_iam.arn
+  timeout          = 10
   filename         = "gef_lambda_dirlist_payload.zip"
   environment {
     variables = {
